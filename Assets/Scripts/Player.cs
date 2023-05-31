@@ -194,24 +194,7 @@ public class Player : MonoBehaviour
 #endregion
 
     private void Update() 
-    {
-        if(Input.GetKeyDown("c"))
-        {
-            AddWidth(1);
-        }   
-        if(Input.GetKeyDown("x"))
-        {
-            AddWidth(-1);
-        }   
-        if(Input.GetKeyDown("d"))
-        {
-            AddHeight(2);
-        }   
-        if(Input.GetKeyDown("s"))
-        {
-            AddHeight(-2);
-        }   
-
+    {  
         
         if (_heightForChange.Count > 0)
         {
@@ -258,10 +241,6 @@ public class Player : MonoBehaviour
     {
         ChangeHeightFixAngles();
     }
-    public void Finished()
-    {
-
-    }
     void FixedUpdate() 
     {      
         if (_isMoving)
@@ -269,7 +248,7 @@ public class Player : MonoBehaviour
             _rigidBody.velocity = _position * _speed;
             _model.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_position), Time.fixedDeltaTime * _speed);
             //Debug.Log("Move to pos: " + _position);
-            _isMoving = false;  
+            _isMoving = false;
         } 
     }
     void OnTriggerEnter(Collider other) 
